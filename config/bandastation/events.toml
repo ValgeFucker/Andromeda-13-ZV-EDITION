@@ -1,93 +1,93 @@
-### Example:
+### Пример:
 
-#["Event Name"]
+#["Название События"]
 #
-### The category of the event
-# category = "Event Category"
+### Категория события
+# category = "Категория События"
 #
-# ### The description of the event
-# description = "Event description..."
+# ### Описание события
+# description = "Описание события..."
 #
-# ### The weight this event has in the random-selection process
-# ### Higher weights are more likely to be picked
-# ### 10 is the default weight. 20 is twice more likely; 5 is half as likely as thi.s default
-# ### 0 here does NOT disable the event, it just makes it extremely unlikely
+# ### Вес этого события в процессе случайного выбора
+# ### Более высокие веса имеют больше шансов быть выбранными
+# ### 10 - вес по умолчанию. 20 - в два раза более вероятно; 5 - в два раза менее вероятно, чем по умолчанию
+# ### 0 здесь НЕ отключает событие, просто делает его крайне маловероятным
 # weight = 10
 #
-# ### The earliest world.time that an event can start (round-duration in deciseconds)
-# ### default: 12000 deciseconds (20 mintutes)
+# ### Самое раннее world.time, когда событие может начаться (длительность раунда в децисекундах)
+# ### по умолчанию: 12000 децисекунд (20 минут)
 # earliest_start = 12000
 #
-# ### The minimum amount of alive, non-AFK human players on server required to start the event
+# ### Минимальное количество живых, не-AFK игроков-людей на сервере, необходимое для запуска события
 # min_players = 0
 #
-# ### The maximum number of times this event can occur (naturally), it can still be forced
-# ### By setting this to 0 you can effectively disable an event
+# ### Максимальное количество раз, которое это событие может произойти (естественным образом), его всё ещё можно принудительно запустить
+# ### Установив это значение в 0, вы можете эффективно отключить событие
 # max_occurrences = 20
 #
-# ### String which should be in the SSgamemode.holidays list if you wish this event to be holiday-specific
-# ### anything with a (non-null) holidayID which does not match holiday, cannot run
-# ### Not sure if it's used by `Gamemode` subsystem
-# holidayID = "HolydayId"
+# ### Строка, которая должна быть в списке SSgamemode.holidays, если вы хотите, чтобы это событие было привязано к празднику
+# ### всё с (не-null) holidayID, которое не совпадает с holiday, не может запуститься
+# ### Не уверен, используется ли это подсистемой `Gamemode`
+# holidayID = "ИдентификаторПраздника"
 #
-# ### Is this a wizard event?
+# ### Это событие волшебника?
 # wizardevent = false
 #
-# ### Should we let the ghosts know this event is firing
-# ### Should be disabled on events that fire a lot
+# ### Должны ли мы уведомить призраков о запуске этого события
+# ### Следует отключать на событиях, которые запускаются часто
 # alert_observers = true
 #
-# ### Minimum wizard rituals at which to trigger this event, inclusive.
-# ### -1 - never triggered
-# ### 0-7 are valid ritual stages
+# ### Минимальное количество ритуалов волшебника для запуска этого события, включительно.
+# ### -1 - никогда не запускается
+# ### 0-7 - допустимые стадии ритуалов
 # min_wizard_trigger_potency = -1
 #
-# ### Maximum wizard rituals at which to trigger this event, inclusive.
-# ### -1 - never triggered
-# ### 0-7 are valid ritual stages
+# ### Максимальное количество ритуалов волшебника для запуска этого события, включительно.
+# ### -1 - никогда не запускается
+# ### 0-7 - допустимые стадии ритуалов
 # max_wizard_trigger_potency = -1
 #
-# ### Flags dictating whether this event should be run on certain kinds of map
-# ### Possible values:
-# ### - 0 - Event has no special requirements
-# ### - 1 - Event can only run on a map set in space
-# ### - 2 - Event can only run on a map which is a planet
+# ### Флаги, определяющие, должно ли это событие запускаться на определённых типах карт
+# ### Возможные значения:
+# ### - 0 - Событие не имеет специальных требований
+# ### - 1 - Событие может запускаться только на карте в космосе
+# ### - 2 - Событие может запускаться только на карте, которая является планетой
 # map_flags = 0
 #
-# ### Which track this event uses in storyteller system
-# ### Possible values:
+# ### Какой трек использует это событие в системе рассказчика
+# ### Возможные значения:
 # ### - "Mundane"
 # ### - "Moderate"
 # ### - "Major"
 # ### - "Roleset"
 # track = "Moderate"
 #
-# ### Coefficient of event weight downscaling per occurance
-# ### 1 - means weight won't downscale
+# ### Коэффициент уменьшения веса события за каждое повторение
+# ### 1 - означает, что вес не будет уменьшаться
 # reoccurence_penalty_multiplier = 1
 #
-# ### List of tags that define event type. Empty by default - no tags.
-# ### Possible values:
-# ###	- "combat" - When the event is combat oriented (spawning monsters, inherently hostile antags)
-# ###	- "spooky" - When the event is spooky (broken lights, some antags)
-# ###	- "destructive" - When the event is destructive in a decent capacity (meteors, blob)
-# ###	- "communal" - When the event impacts most of the crewmembers in some capacity (comms blackout)
-# ###	- "targeted" - When the event targets a person for something (appendix, heart attack)
-# ###	- "positive" - When the event is positive and helps the crew, in some capacity (Shuttle Loan, Supply Pod)
-# ###	- "crew_antag" - When one of the crewmembers becomes an antagonist
-# ###	- "team_antag" - When the antagonist event is focused around team cooperation.
-# ###	- "away_antag" - When one of the non-crewmember players becomes an antagonist
-# ###	- "overmap" - When the event impacts the overmap
-# ###	- "space" - When the event requires the station to be in space (meteors, carp)
-# ###	- "planetary" - When the event requires the station to be planetary.
-# ###	- "external" - When the event is an external threat (meteors, nukies).
-# ###	- "alien" - When the event is an alien threat (blob, xenos)
-# ###	- "magical" - When the event is magical in nature
+# ### Список тегов, определяющих тип события. По умолчанию пуст - нет тегов.
+# ### Возможные значения:
+# ###	- "combat" - Когда событие ориентировано на бой (спавн монстров, изначально враждебные антагонисты)
+# ###	- "spooky" - Когда событие жуткое (сломанные огни, некоторые антагонисты)
+# ###	- "destructive" - Когда событие разрушительно в значительной степени (метеоры, блоб)
+# ###	- "communal" - Когда событие затрагивает большинство членов экипажа в некоторой степени (отключение связи)
+# ###	- "targeted" - Когда событие нацелено на конкретного человека (аппендицит, сердечный приступ)
+# ###	- "positive" - Когда событие положительное и помогает экипажу в некоторой степени (Аренда Шаттла, Грузовой Пода)
+# ###	- "crew_antag" - Когда один из членов экипажа становится антагонистом
+# ###	- "team_antag" - Когда событие антагониста сосредоточено на командном взаимодействии.
+# ###	- "away_antag" - Когда один из игроков, не являющихся членами экипажа, становится антагонистом
+# ###	- "overmap" - Когда событие затрагивает оверкарту
+# ###	- "space" - Когда событие требует, чтобы станция была в космосе (метеоры, карпы)
+# ###	- "planetary" - Когда событие требует, чтобы станция была планетарной.
+# ###	- "external" - Когда событие является внешней угрозой (метеоры, ядерные оперативники).
+# ###	- "alien" - Когда событие является инопланетной угрозой (блоб, ксеносы)
+# ###	- "magical" - Когда событие магической природы
 # tags = []
 #
-# ### List of departments to required crew amount. Key - department id, value - required crew amount (integer).
-# ### Empty by default - no special department requirements
-# ### Possible keys:
+# ### Список отделов и требуемого количества crew. Ключ - id отдела, значение - требуемое количество crew (целое число).
+# ### По умолчанию пуст - нет специальных требований к отделам
+# ### Возможные ключи:
 # ### - "head"
 # ### - "med"
 # ### - "eng"
@@ -95,9 +95,9 @@
 # ### - "sec"
 # req_departments_crew = []
 #
-# ### List of departments to required power. Key - department id, value - required power (integer).
-# ### Empty by default - no special department requirements
-# ### Possible keys:
+# ### Список отделов и требуемой мощности. Ключ - id отдела, значение - требуемая мощность (целое число).
+# ### По умолчанию пуст - нет специальных требований к отделам
+# ### Возможные ключи:
 # ### - "head"
 # ### - "med"
 # ### - "eng"
