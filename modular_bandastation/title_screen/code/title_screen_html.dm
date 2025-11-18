@@ -36,7 +36,7 @@
 							<label class="lobby_element lobby-collapse" for="hide_menu"></label>
 							<span id="character_name" data-loading="[SStitle.subsystem_loading]" data-name="[player_name]"></span>
 							<div id="logo" data-loaded="[round(loading_percentage)]%">
-								<img src="[SSassets.transport.get_asset_url("ss220_logo.png")]">
+								<img src="[SSassets.transport.get_asset_url("A13_logo.png")]">
 							</div>
 						</div>
 						<div class="lobby_buttons">
