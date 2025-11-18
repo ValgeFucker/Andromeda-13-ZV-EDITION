@@ -115,35 +115,6 @@
 	report_message = "Похоже, что-то не так с КПК, которые вам выдали на эту смену. Впрочем, ничего серьёзного."
 	trait_to_give = STATION_TRAIT_PDA_GLITCHED
 
-/datum/station_trait/announcement_intern
-	name = "Объявления от интерна"
-	trait_type = STATION_TRAIT_NEUTRAL
-	weight = 1
-	show_in_report = TRUE
-	report_message = "Пожалуйста, будьте с ним поласковее."
-	blacklist = list(/datum/station_trait/announcement_medbot, /datum/station_trait/birthday)
-
-/datum/station_trait/announcement_intern/New()
-	. = ..()
-	SSstation.announcer = /datum/centcom_announcer/intern
-
-/datum/station_trait/announcement_intern/get_pulsar_message()
-	var/advisory_string = "Уровень предупреждения: <b>(НАЗВАНИЕ ЗДЕСЬ)</b></center><BR>"
-	advisory_string += "(Скопируйте и вставьте в это поле сводку, предоставленную Управлением по анализу угроз. С этим у вас не должно возникнуть проблем, просто замените это сообщение, прежде чем нажимать кнопку отправки. Кроме того, убедитесь, что кофе готов к встрече в 06:00, когда закончите.)"
-	return advisory_string
-
-/datum/station_trait/announcement_medbot
-	name = "Система \"оповещения\""
-	trait_type = STATION_TRAIT_NEUTRAL
-	weight = 1
-	show_in_report = TRUE
-	report_message = "В настоящее время наша система оповещения находится на плановом обслуживании. К счастью, у нас есть резервная система."
-	blacklist = list(/datum/station_trait/announcement_intern, /datum/station_trait/birthday)
-
-/datum/station_trait/announcement_medbot/New()
-	. = ..()
-	SSstation.announcer = /datum/centcom_announcer/medbot
-
 /datum/station_trait/colored_assistants
 	name = "Цветные ассистенты"
 	trait_type = STATION_TRAIT_NEUTRAL
@@ -166,7 +137,6 @@
 	show_in_report = TRUE
 	report_message = "Компания Нанотрейзен хотела бы поздравить сотрудника с днём ​​рождения."
 	trait_to_give = STATION_TRAIT_BIRTHDAY
-	blacklist = list(/datum/station_trait/announcement_intern, /datum/station_trait/announcement_medbot) //Overiding the annoucer hides the birthday person in the annoucement message.
 	///Variable that stores a reference to the person selected to have their birthday celebrated.
 	var/mob/living/carbon/human/birthday_person
 	///Variable that holds the real name of the birthday person once selected, just incase the birthday person's real_name changes.
