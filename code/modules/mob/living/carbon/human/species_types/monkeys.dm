@@ -1,7 +1,8 @@
 #define MONKEY_SPEC_ATTACK_BITE_MISS_CHANCE 25
 
 /datum/species/monkey
-	name = "\improper Monkey"
+	name = "Обезьяна"
+	plural_form = "Обезьяны"
 	id = SPECIES_MONKEY
 	mutant_organs = list(
 		/obj/item/organ/tail/monkey = "Monkey",
@@ -80,19 +81,19 @@
 	// we're both great apes, or something..
 
 /datum/species/monkey/get_physical_attributes()
-	return "Monkeys are slippery, can crawl into vents, and are more dextrous than humans.. but only when stealing things. \
-		Natural monkeys cannot operate machinery or most tools with their paws, but unusually clever monkeys or those that were once something else can."
+	return "Обезьяны проворны, могут пролезать в вентиляцию и более ловки, чем люди.. но только когда воруют вещи. \
+		Природные обезьяны не могут управлять механизмами или большинством инструментов своими лапами, но необычно умные обезьяны или те, которые когда-то были кем-то другим, могут."
 
 /datum/species/monkey/get_species_description()
-	return "Monkeys are a type of primate that exist between humans and animals on the evolutionary chain. \
-		Every year, on Monkey Day, Nanotrasen shows their respect for the little guys by allowing them to roam the station freely."
+	return "Обезьяны - это тип приматов, которые находятся между людьми и животными на эволюционной цепи. \
+		Каждый год, в День Обезьяны, Нанотрейзен проявляет уважение к маленьким ребятам, позволяя им свободно бродить по станции."
 
 /datum/species/monkey/get_species_lore()
 	return list(
-		"Monkeys are commonly used as test subjects on board Space Station Thirteen. \
-		But what if... for one day... the Monkeys were allowed to be the scientists? \
-		What experiments would they come up it? Would they (stereotypically) be related to bananas somehow? \
-		There's only one way to find out.",
+		"Обезьяны обычно используются в качестве подопытных на борту Космической Станции 13. \
+		Но что, если... на один день... Обезьянам позволили быть учёными? \
+		Какие эксперименты они придумали бы? Будет ли это (стереотипно) как-то связано с бананами? \
+		Есть только один способ узнать.",
 	)
 
 /datum/species/monkey/create_pref_unique_perks()
@@ -102,16 +103,16 @@
 		list(
 			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 			SPECIES_PERK_ICON = "spider",
-			SPECIES_PERK_NAME = "Vent Crawling",
-			SPECIES_PERK_DESC = "Monkeys can crawl through the vent and scrubber networks while wearing no clothing. \
-				Stay out of the kitchen!",
+			SPECIES_PERK_NAME = "Ползание по вентиляции",
+			SPECIES_PERK_DESC = "Обезьяны могут ползать по сетям вентиляции и скрубберов, не нося одежду. \
+				Держитесь подальше от кухни!",
 		),
 		list(
 			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 			SPECIES_PERK_ICON = "paw",
-			SPECIES_PERK_NAME = "Primal Primate",
-			SPECIES_PERK_DESC = "Monkeys are primitive humans, and can't do most things a human can do. Computers are impossible, \
-				complex machines are right out, and most clothes don't fit your smaller form.",
+			SPECIES_PERK_NAME = "Примитивный примат",
+			SPECIES_PERK_DESC = "Обезьяны - примитивные люди и не могут делать большинство вещей, которые может делать человек. Компьютеры невозможны, \
+				сложные механизмы исключены и большинство одежды не подходит для вашей меньшей формы.",
 		),
 	)
 
@@ -126,23 +127,23 @@
 	to_add += list(list(
 		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 		SPECIES_PERK_ICON = "comment",
-		SPECIES_PERK_NAME = "Primitive Tongue",
-		SPECIES_PERK_DESC = "You may be able to understand [initial(common_language.name)], but you can't speak it. \
-			You can only speak [initial(monkey_language.name)].",
+		SPECIES_PERK_NAME = "Примитивный язык",
+		SPECIES_PERK_DESC = "Вы можете понимать [initial(common_language.name)], но не можете говорить на нём. \
+			Вы можете говорить только на [initial(monkey_language.name)].",
 	))
 
 	return to_add
 
-/obj/item/organ/brain/primate //Ook Ook
+/obj/item/organ/brain/primate // Ук Ук
 	name = "Primate Brain"
-	desc = "This wad of meat is small, but has enlarged occipital lobes for spotting bananas."
+	desc = "Этот комок мяса мал, но имеет увеличенные затылочные доли для обнаружения бананов."
 	organ_traits = list(TRAIT_CAN_STRIP, TRAIT_PRIMITIVE, TRAIT_GUN_NATURAL) // No literacy or advanced tool usage.
 	actions_types = list(/datum/action/item_action/organ_action/toggle_trip)
 	/// Will this monkey stumble if they are crossed by a simple mob or a carbon in combat mode? Toggable by monkeys with clients, and is messed automatically set to true by monkey AI.
 	var/tripping = TRUE
 
 /datum/action/item_action/organ_action/toggle_trip
-	name = "Toggle Tripping"
+	name = "Переключить Спотыкание"
 	button_icon = 'icons/mob/actions/actions_changeling.dmi'
 	button_icon_state = "lesser_form"
 	background_icon_state = "bg_default_on"
@@ -153,11 +154,11 @@
 	if(monkey_brain.tripping)
 		monkey_brain.tripping = FALSE
 		background_icon_state = "bg_default"
-		to_chat(monkey_brain.owner, span_notice("You will now avoid stumbling while colliding with people who are in combat mode."))
+		to_chat(monkey_brain.owner, span_notice("Теперь вы будете избегать спотыкания при столкновении с людьми в боевом режиме."))
 	else
 		monkey_brain.tripping = TRUE
 		background_icon_state = "bg_default_on"
-		to_chat(monkey_brain.owner, span_notice("You will now stumble while colliding with people who are in combat mode."))
+		to_chat(monkey_brain.owner, span_notice("Теперь вы будете спотыкаться при столкновении с людьми в боевом режиме."))
 	build_all_button_icons()
 	return TRUE
 

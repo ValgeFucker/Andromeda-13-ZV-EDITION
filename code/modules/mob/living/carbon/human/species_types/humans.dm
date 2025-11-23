@@ -1,5 +1,5 @@
 /datum/species/human
-	name = "\improper Human"
+	name = "Человек"
 	id = SPECIES_HUMAN
 	inherent_traits = list(
 		TRAIT_USES_SKINTONES,
@@ -97,27 +97,25 @@
 	return 'sound/mobs/humanoids/human/hiss/human_hiss.ogg'
 
 /datum/species/human/get_species_description()
-	return "Humans are the dominant species in the known galaxy. \
-		Their kind extend from old Earth to the edges of known space."
+	return "Люди - доминирующий вид в известной галактике. \
+		Их вид простирается от старой Земли до окраин известного космоса."
 
 /datum/species/human/get_species_lore()
 	return list(
-		"These primate-descended creatures, originating from the mostly harmless Earth, \
-		have long-since outgrown their home and semi-benign designation. \
-		The space age has taken humans out of their solar system and into the galaxy-at-large.",
+		"Эти существа, произошедшие от приматов с безобидной Земли, \
+		давно переросли свой дом и полу-безобидный статус. \
+		Космическая эра вывела людей за пределы их солнечной системы в галактику в целом.",
 
-		"In traditional human fashion, this near-record pace from terra firma to the final frontier spat \
-		in the face of other races they now shared a stage with. \
-		This included the lizards - if anyone was offended by these upstarts, it was certainly lizardkind.",
+		"В традиционной человеческой манере, этот почти рекордный темп продвижения от твердой земли до последнего рубежа \
+		в космосе, плевав в лицо другим расам, с которыми встречались и делили территории.",
 
-		"Humanity never managed to find the kind of peace to fully unite under one banner like other species. \
-		The pencil and paper pushing of the UN bureaucrat lives on in the mosaic that is TerraGov; \
-		a composite of the nation-states that still live on in human society.",
+		"Человечеству так и не удалось обрести мир, чтобы полностью объединиться под одним знаменем, как другие виды. \
+		Бюрократическая волокита миротворцев ООН продолжает жить в системе, которой является ТерраГруп.",
 
-		"The human spirit of opportunity and enterprise continues on in its peak form: \
-		the hypercorporation. Acting outside of TerraGov's influence, literally and figuratively, \
-		hypercorporations buy the senate votes they need and establish territory far past the Earth Government's reach. \
-		In hypercorporation territory company policy is law, giving new meaning to \"employee termination\".",
+		"Дух возможностей и предпринимательства человека продолжает жить в своей высшей форме: \
+		гиперкорпорации. Действуя вне влияния ТерраГруп, как буквально, так и фигурально, \
+		гиперкорпорации покупают необходимые голоса и устанавливают территории далеко за пределами досягаемости Земного Правительства. \
+		На территориях гиперкорпораций корпоративная политика является законом, придавая новое значение \"увольнению сотрудника\".",
 	)
 
 /datum/species/human/create_pref_unique_perks()

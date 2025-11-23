@@ -1,6 +1,6 @@
 /datum/species/plasmaman
-	name = "\improper Plasmaman"
-	plural_form = "Plasmamen"
+	name = "Плазмалюд"
+	plural_form = "Плазмалюди"
 	id = SPECIES_PLASMAMAN
 	sexes = FALSE
 	meat = /obj/item/stack/sheet/mineral/plasma
@@ -83,31 +83,31 @@
 	)
 
 /datum/species/plasmaman/get_physical_attributes()
-	return "Plasmamen literally breathe and live plasma. They spontaneously combust on contact with oxygen, and besides all the quirks that go with that, \
-		they're very vulnerable to all kinds of physical damage due to their brittle structure."
+	return "Плазмалюди буквально дышат и живут плазмой. Они самовоспламеняются при контакте с кислородом, и помимо всех особенностей, связанных с этим, \
+		они очень уязвимы ко всем видам физического урона из-за своей хрупкой структуры."
 
 /datum/species/plasmaman/get_species_description()
-	return "Found on the Icemoon of Freyja, plasmamen consist of colonial \
-		fungal organisms which together form a sentient being. In human space, \
-		they're usually attached to skeletons to afford a human touch."
+	return "Обнаруженные на ледяной луне Фрейя, плазмалюди состоят из колониальных \
+		грибковых организмов, которые вместе образуют разумное существо. В человеческом пространстве \
+		их обычно прикрепляют к скелетам для придания человеческого вида."
 
 /datum/species/plasmaman/get_species_lore()
 	return list(
-		"A confusing species, plasmamen are truly \"a fungus among us\". \
-		What appears to be a singular being is actually a colony of millions of organisms \
-		surrounding a found (or provided) skeletal structure.",
+		"Запутанный вид, плазмалюди действительно являются \"грибом среди нас\". \
+		То, что кажется единым существом, на самом деле является колонией миллионов организмов, \
+		окружающих найденную или предоставленную скелетную структуру.",
 
-		"Originally discovered by NT when a researcher \
-		fell into an open tank of liquid plasma, the previously unnoticed fungal colony overtook the body creating \
-		the first \"true\" plasmaman. The process has since been streamlined via generous donations of convict corpses and plasmamen \
-		have been deployed en masse throughout NT to bolster the workforce.",
+		"Изначально обнаружены НТ, когда исследователь \
+		упал в открытый резервуар с жидкой плазмой, ранее незамеченная грибковая колония захватила тело, создав \
+		первого \"настоящего\" плазмалюда. С тех пор процесс был упрощён за счёт щедрых пожертвований трупов заключённых и плазмалюди \
+		были массово развёрнуты по всей НТ для усиления рабочей силы.",
 
-		"New to the galactic stage, plasmamen are a blank slate. \
-		Their appearance, generally regarded as \"ghoulish\", inspires a lot of apprehension in their crewmates. \
-		It might be the whole \"flammable purple skeleton\" thing.",
+		"Новые на галактической сцене, плазмалюди - чистый лист. \
+		Их внешний вид, обычно считающийся \"жутким\", вызывает много опасений у их товарищей по экипажу. \
+		Возможно, дело в целом \"воспламеняющийся фиолетовый скелет\".",
 
-		"The colonids that make up plasmamen require the plasma-rich atmosphere they evolved in. \
-		Their psuedo-nervous system runs with externalized electrical impulses that immediately ignite their plasma-based bodies when oxygen is present.",
+		"Колониды, из которых состоят плазмалюди, требуют богатой плазмой атмосферы, в которой они эволюционировали. \
+		Их псевдо-нервная система работает с экстернализированными электрическими импульсами, которые мгновенно воспламеняют их плазменные тела при наличии кислорода.",
 	)
 
 /datum/species/plasmaman/create_pref_unique_perks()

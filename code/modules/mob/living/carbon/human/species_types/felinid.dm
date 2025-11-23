@@ -1,6 +1,7 @@
 //Subtype of human
 /datum/species/human/felinid
-	name = "Felinid"
+	name = "Фелинид"
+	plural_form = "Фелиниды"
 	id = SPECIES_FELINE
 	examine_limb_id = SPECIES_HUMAN
 	mutantbrain = /obj/item/organ/brain/felinid
@@ -153,7 +154,7 @@
 			kitty_tail.Insert(soon_to_be_felinid, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 	if(!silent)
-		to_chat(soon_to_be_felinid, span_boldnotice("Something is nya~t right."))
+		to_chat(soon_to_be_felinid, span_boldnotice("Что-то не так, мяу~."))
 		playsound(get_turf(soon_to_be_felinid), 'sound/effects/meow1.ogg', 50, TRUE, -1)
 
 /proc/purrbation_remove(mob/living/carbon/human/purrbated_human, silent = FALSE)
@@ -187,7 +188,7 @@
 			var/obj/item/organ/new_ears = new target_species.mutantears()
 			new_ears.Insert(purrbated_human, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 	if(!silent)
-		to_chat(purrbated_human, span_boldnotice("You are no longer a cat."))
+		to_chat(purrbated_human, span_boldnotice("Вы больше не кошка."))
 
 /datum/species/human/felinid/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	human_for_preview.set_haircolor("#ffcccc", update = FALSE) // pink
@@ -199,26 +200,26 @@
 		human_for_preview.update_body()
 
 /datum/species/human/felinid/get_physical_attributes()
-	return "Felinids are very similar to humans in almost all respects, with their biggest differences being the ability to lick their wounds, \
-		and an increased sensitivity to noise, which is often detrimental. They are also rather fond of eating oranges."
+	return "Фелиниды очень похожи на людей почти во всех отношениях, с их самыми большими отличиями - способность зализывать раны, \
+		и повышенная чувствительность к шуму, что часто является недостатком. Они также довольно любят есть апельсины."
 
 /datum/species/human/felinid/get_species_description()
-	return "Felinids are one of the many types of bespoke genetic \
-		modifications to come of humanity's mastery of genetic science, and are \
-		also one of the most common. Meow?"
+	return "Фелиниды - одно из многих типов индивидуальных генетических \
+		модификаций, появившихся благодаря мастерству человечества в генетической науке, и также \
+		одни из самых распространённых. Мяу?"
 
 /datum/species/human/felinid/get_species_lore()
 	return list(
-		"Bio-engineering at its felinest, Felinids are the peak example of humanity's mastery of genetic code. \
-			One of many \"Animalid\" variants, Felinids are the most popular and common, as well as one of the \
-			biggest points of contention in genetic-modification.",
+		"Биоинженерия в её наиболее кошачьем проявлении, фелиниды - пиковый пример мастерства человечества над генетическим кодом. \
+			Один из многих вариантов \"Анималидов\", фелиниды - самые популярные и распространённые, а также одна из \
+			самых спорных точек в генетической модификации.",
 
-		"Body modders were eager to splice human and feline DNA in search of the holy trifecta: ears, eyes, and tail. \
-			These traits were in high demand, with the corresponding side effects of vocal and neurochemical changes being seen as a minor inconvenience.",
+		"Модификаторы тел стремились соединить человеческую и кошачью ДНК в поисках святой троицы: ушей, глаз и хвоста. \
+			Эти черты были очень востребованы, с соответствующими побочными эффектами в виде вокальных и нейрохимических изменений, которые считались незначительными неудобствами.",
 
-		"Sadly for the Felinids, they were not minor inconveniences. Shunned as subhuman and monstrous by many, Felinids (and other Animalids) \
-			sought their greener pastures out in the colonies, cloistering in communities of their own kind. \
-			As a result, outer Human space has a high Animalid population.",
+		"К сожалению для фелинидов, это были не незначительные неудобства. Изгнанные многими как недочеловеки и монстры, фелиниды и другие анималиды, \
+			искали свои лучшие доли в колониях, собираясь в сообщества себе подобных. \
+			В результате, внешнее человеческое пространство имеет высокую популяцию анималидов.",
 	)
 
 // Felinids are subtypes of humans.
@@ -256,9 +257,9 @@
 		list(
 			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 			SPECIES_PERK_ICON = FA_ICON_ANGRY,
-			SPECIES_PERK_NAME = "'Fight or Flight' Defense Response",
-			SPECIES_PERK_DESC = "Felinids who become mentally unstable (and deprived of food) exhibit an \
-				extreme 'fight or flight' response against aggressors. They sometimes bite people. Violently.",
+			SPECIES_PERK_NAME = "Бей или Беги",
+			SPECIES_PERK_DESC = "Фелиниды, ставшие психически нестабильными, проявляют \
+				крайнюю реакцию 'бей или беги' против агрессоров. Они иногда кусают людей. Жестоко.",
 		),
 	)
 	return to_add

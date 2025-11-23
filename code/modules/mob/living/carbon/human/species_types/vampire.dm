@@ -5,7 +5,8 @@
 #define VAMP_DRAIN_AMOUNT 50
 
 /datum/species/human/vampire
-	name = "Vampire"
+	name = "Вампир"
+	plural_form = "Вампиры"
 	id = SPECIES_VAMPIRE
 	examine_limb_id = SPECIES_HUMAN
 	inherent_traits = list(
@@ -23,8 +24,8 @@
 	mutantheart = /obj/item/organ/heart/vampire
 	mutanttongue = /obj/item/organ/tongue/vampire
 	///some starter text sent to the vampire initially, because vampires have shit to do to stay alive
-	var/info_text = "You are a <span class='danger'>Vampire</span>. You will slowly but constantly lose blood if outside of a coffin. If inside a coffin, you will slowly heal. You may gain more blood by grabbing a live victim and using your drain ability."
-	/// UI displaying how much blood we have
+	var/info_text = "Вы - <span class='danger'>Вампир</span>. Вы будете медленно, но постоянно терять кровь, если находитесь вне гроба. Если внутри гроба, вы будете медленно исцеляться. Вы можете получить больше крови, схватив живую жертву и используя свою способность высасывания."
+	/// UI, отображающий, сколько у нас крови
 	var/atom/movable/screen/blood_level/blood_display
 
 /datum/species/human/vampire/check_roundstart_eligible()
@@ -60,12 +61,12 @@
 		return
 	vampire.blood_volume -= 0.125 * seconds_per_tick
 	if(vampire.blood_volume <= BLOOD_VOLUME_SURVIVE)
-		to_chat(vampire, span_danger("You ran out of blood!"))
-		vampire.investigate_log("has been dusted by a lack of blood (vampire).", INVESTIGATE_DEATHS)
+		to_chat(vampire, span_danger("У вас закончилась кровь!"))
+		vampire.investigate_log("был обращён в пыль из-за нехватки крови (вампир).", INVESTIGATE_DEATHS)
 		vampire.dust()
 	var/area/A = get_area(vampire)
 	if(istype(A, /area/station/service/chapel))
-		to_chat(vampire, span_warning("You don't belong here!"))
+		to_chat(vampire, span_warning("Вы не принадлежите этому месту!"))
 		vampire.adjustFireLoss(10 * seconds_per_tick)
 		vampire.adjust_fire_stacks(3 * seconds_per_tick)
 		vampire.ignite_mob()
@@ -85,17 +86,17 @@
 		MODIFY_ATTACK_FORCE_MULTIPLIER(attack_modifiers, 2)
 
 /datum/species/human/vampire/get_physical_attributes()
-	return "Vampires are afflicted with the Thirst, needing to sate it by draining the blood out of another living creature. However, they do not need to breathe or eat normally. \
-		They will instantly turn into dust if they run out of blood or enter a holy area. However, coffins stabilize and heal them, and they can transform into bats!"
+	return "Вампиры страдают от жажды, нуждаясь утолять её, высасывая кровь из другого живого существа. Однако им не нужно дышать или есть обычным образом. \
+		Они мгновенно превращаются в пыль, если у них заканчивается кровь или они входят в священную зону. Однако гробы стабилизируют и исцеляют их и они могут превращаться в летучих мышей!"
 
 /datum/species/human/vampire/get_species_description()
-	return "A classy Vampire! They descend upon Space Station Thirteen Every year to spook the crew! \"Bleeg!!\""
+	return "Элегантный Вампир! Они спускаются на Космическую Станцию 13 каждый год, чтобы напугать экипаж!"
 
 /datum/species/human/vampire/get_species_lore()
 	return list(
-		"Vampires are unholy beings blessed and cursed with The Thirst. \
-		The Thirst requires them to feast on blood to stay alive, and in return it gives them many bonuses. \
-		Because of this, Vampires have split into two clans, one that embraces their powers as a blessing and one that rejects it.",
+		"Вампиры - нечестивые существа, благословленные и проклятые Жаждой. \
+		Жажда требует от них пить кровь, чтобы оставаться в живых и в ответ даёт им много бонусов. \
+		Из-за этого вампиры разделились на два клана: один принимает свои силы как благословение, а другой отвергает их.",
 	)
 
 /datum/species/human/vampire/create_pref_unique_perks()
@@ -105,22 +106,22 @@
 		list(
 			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 			SPECIES_PERK_ICON = "bed",
-			SPECIES_PERK_NAME = "Coffin Brooding",
-			SPECIES_PERK_DESC = "Vampires can delay The Thirst and heal by resting in a coffin. So THAT'S why they do that!",
+			SPECIES_PERK_NAME = "Гробовое высиживание",
+			SPECIES_PERK_DESC = "Вампиры могут отсрочить Жажду и исцелиться, отдыхая в гробу. Так ВОТ почему они это делают!",
 		),
 		list(
 			SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
 			SPECIES_PERK_ICON = "book-dead",
-			SPECIES_PERK_NAME = "Vampire Clans",
-			SPECIES_PERK_DESC = "Vampires belong to one of two clans - the Inoculated, and the Outcast. The Outcast \
-				don't follow many vampiric traditions, while the Inoculated are given unique names and flavor.",
+			SPECIES_PERK_NAME = "Кланы вампиров",
+			SPECIES_PERK_DESC = "Вампиры принадлежат к одному из двух кланов - Привитые и Изгнанники. Изгнанники \
+				не следуют многим вампирским традициям, в то время как Привитым даются уникальные имена и стиль.",
 		),
 		list(
 			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 			SPECIES_PERK_ICON = "cross",
-			SPECIES_PERK_NAME = "Against God and Nature",
-			SPECIES_PERK_DESC = "Almost all higher powers are disgusted by the existence of \
-				Vampires, and entering the Chapel is essentially suicide. Do not do it!",
+			SPECIES_PERK_NAME = "Против бога и природы",
+			SPECIES_PERK_DESC = "Почти все высшие силы испытывают отвращение к существованию \
+				Вампиров, а вход в Церковь - это самоубийство. Не делайте этого!",
 		),
 	)
 
@@ -133,12 +134,12 @@
 	to_add += list(list(
 		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 		SPECIES_PERK_ICON = "tint",
-		SPECIES_PERK_NAME = "The Thirst",
-		SPECIES_PERK_DESC = "In place of eating, Vampires suffer from The Thirst. \
-			Thirst of what? Blood! Their tongue allows them to grab people and drink \
-			their blood, and they will die if they run out. As a note, it doesn't \
-			matter whose blood you drink, it will all be converted into your blood \
-			type when consumed.",
+		SPECIES_PERK_NAME = "Жажда",
+		SPECIES_PERK_DESC = "Вместо еды вампиры страдают от Жажды. \
+			Жажды чего? Крови! Их язык позволяет им хватать людей и пить \
+			их кровь, и они умрут, если у них закончится кровь. Как примечание, не имеет \
+			значения, чью кровь вы пьёте, она вся будет преобразована в вашу группу \
+			крови при потреблении.",
 	))
 
 	return to_add
@@ -150,11 +151,11 @@
 	to_add += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = "skull",
-		SPECIES_PERK_NAME = "Minor Undead",
-		SPECIES_PERK_DESC = "[name] are minor undead. \
-			Minor undead enjoy some of the perks of being dead, like \
-			not needing to breathe or eat, but do not get many of the \
-			environmental immunities involved with being fully undead.",
+		SPECIES_PERK_NAME = "Малая нежить",
+		SPECIES_PERK_DESC = "[name] являются малой нежитью. \
+			Малая нежить наслаждается некоторыми преимуществами мёртвых, такими как \
+			отсутствие необходимости дышать или есть, но не получает многих \
+			иммунитетов к окружающей среде, связанных с полной нежитью.",
 	))
 
 	return to_add
@@ -166,8 +167,8 @@
 	COOLDOWN_DECLARE(drain_cooldown)
 
 /datum/action/item_action/organ_action/vampire
-	name = "Drain Victim"
-	desc = "Leech blood from any carbon victim you are passively grabbing."
+	name = "Высасывание жертвы"
+	desc = "Высасывайте кровь у любой жертвы, которую вы пассивно держите."
 
 /datum/action/item_action/organ_action/vampire/do_effect(trigger_flags)
 	if(!iscarbon(owner))
@@ -176,7 +177,7 @@
 	var/mob/living/carbon/user = owner
 	var/obj/item/organ/tongue/vampire/licker_drinker = target
 	if(!COOLDOWN_FINISHED(licker_drinker, drain_cooldown))
-		to_chat(user, span_warning("You just drained blood, wait a few seconds!"))
+		to_chat(user, span_warning("Вы только что высосали кровь, подождите несколько секунд!"))
 		return FALSE
 
 	if(!iscarbon(user.pulling))
@@ -184,38 +185,38 @@
 
 	var/mob/living/carbon/victim = user.pulling
 	if(user.blood_volume >= BLOOD_VOLUME_MAXIMUM)
-		to_chat(user, span_warning("You're already full!"))
+		to_chat(user, span_warning("Вы уже сыты!"))
 		return FALSE
 	if(victim.stat == DEAD)
-		to_chat(user, span_warning("You need a living victim!"))
+		to_chat(user, span_warning("Вам нужна живая жертва!"))
 		return FALSE
 	var/blood_name = LOWER_TEXT(user.get_bloodtype()?.get_blood_name())
 	if(!victim.blood_volume || victim.get_blood_reagent() != user.get_blood_reagent())
 		if (blood_name)
-			to_chat(user, span_warning("[victim] doesn't have [blood_name]!"))
+			to_chat(user, span_warning("У [victim] нет [blood_name]!"))
 		else
-			to_chat(user, span_warning("[victim] doesn't have anything inside of them you could stomach!"))
+			to_chat(user, span_warning("У [victim] нет ничего внутри, что вы могли бы переварить!"))
 		return FALSE
 	COOLDOWN_START(licker_drinker, drain_cooldown, 3 SECONDS)
 	if(victim.can_block_magic(MAGIC_RESISTANCE_HOLY, charge_cost = 0))
-		victim.show_message(span_warning("[user] tries to bite you, but stops before touching you!"))
-		to_chat(user, span_warning("[victim] is blessed! You stop just in time to avoid catching fire."))
+		victim.show_message(span_warning("[user] пытается укусить вас, но останавливается, не коснувшись вас!"))
+		to_chat(user, span_warning("[victim] благословлен! Вы останавливаетесь как раз вовремя, чтобы избежать возгорания."))
 		return FALSE
 	if(victim.has_reagent(/datum/reagent/consumable/garlic))
-		victim.show_message(span_warning("[user] tries to bite you, but recoils in disgust!"))
-		to_chat(user, span_warning("[victim] reeks of garlic! you can't bring yourself to drain such tainted blood."))
+		victim.show_message(span_warning("[user] пытается укусить вас, но отшатывается с отвращением!"))
+		to_chat(user, span_warning("[victim] смердит чесноком! вы не можете заставить себя пить такую испорченную кровь."))
 		return FALSE
 	if(!do_after(user, 3 SECONDS, target = victim, hidden = TRUE))
 		return FALSE
-	var/blood_volume_difference = BLOOD_VOLUME_MAXIMUM - user.blood_volume //How much capacity we have left to absorb blood
+	var/blood_volume_difference = BLOOD_VOLUME_MAXIMUM - user.blood_volume //Сколько у нас осталось места для поглощения крови
 	var/drained_blood = min(victim.blood_volume, VAMP_DRAIN_AMOUNT, blood_volume_difference)
-	victim.show_message(span_danger("[user] is draining your blood!"))
-	to_chat(user, span_notice("You drain some blood!"))
+	victim.show_message(span_danger("[user] высасывает вашу кровь!"))
+	to_chat(user, span_notice("Вы высосали немного крови!"))
 	playsound(user, 'sound/items/drink.ogg', 30, TRUE, -2)
 	victim.blood_volume = clamp(victim.blood_volume - drained_blood, 0, BLOOD_VOLUME_MAXIMUM)
 	user.blood_volume = clamp(user.blood_volume + drained_blood, 0, BLOOD_VOLUME_MAXIMUM)
 	if(!victim.blood_volume)
-		to_chat(user, span_notice("You finish off [victim]'s [blood_name] supply."))
+		to_chat(user, span_notice("Вы опустошили запас [blood_name] у [victim]."))
 	return TRUE
 
 /obj/item/organ/heart/vampire

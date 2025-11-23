@@ -1,5 +1,6 @@
 /datum/species/dullahan
-	name = "Dullahan"
+	name = "Дуллахан"
+	plural_form = "Дуллаханы"
 	id = SPECIES_DULLAHAN
 	examine_limb_id = SPECIES_HUMAN
 	inherent_traits = list(
@@ -65,7 +66,7 @@
 	if (part.body_zone != BODY_ZONE_HEAD)
 		return
 	my_head = null
-	dullahan.investigate_log("has been gibbed by having an illegal head put on [dullahan.p_their()] shoulders.", INVESTIGATE_DEATHS)
+	dullahan.investigate_log("был превращён в гиббс из-за установки незаконной головы на [dullahan.p_their()] плечи.", INVESTIGATE_DEATHS)
 	dullahan.gib(DROP_ALL_REMAINS) // Yeah so giving them a head on their body is really not a good idea, so their original head will remain but uh, good luck fixing it after that.
 
 /// If our head is destroyed, so are we
@@ -75,7 +76,7 @@
 	if (QDELETED(human))
 		return // guess we already died
 	my_head = null
-	human.investigate_log("has been gibbed by the loss of [human.p_their()] head.", INVESTIGATE_DEATHS)
+	human.investigate_log("был превращён в гиббс из-за потери [human.p_their()] головы.", INVESTIGATE_DEATHS)
 	human.gib(DROP_ALL_REMAINS)
 
 /datum/species/dullahan/on_species_loss(mob/living/carbon/human/human)
@@ -120,18 +121,18 @@
 	owner_first_client_connection_handled = TRUE
 
 /datum/species/dullahan/get_physical_attributes()
-	return "A dullahan is much like a human, but their head is detached from their body and must be carried around."
+	return "Дуллахан очень похож на человека, но его голова отделена от тела и должна носиться с собой."
 
 /datum/species/dullahan/get_species_description()
-	return "An angry spirit, hanging onto the land of the living for \
-		unfinished business. Or that's what the books say. They're quite nice \
-		when you get to know them."
+	return "Злой дух, цепляющийся за землю живых из-за \
+		незаконченных дел. Или так говорят книги. Они довольно милые, \
+		когда узнаешь их получше."
 
 /datum/species/dullahan/get_species_lore()
 	return list(
-		"\"No wonder they're all so grumpy! Their hands are always full! I used to think, \
-		\"Wouldn't this be cool?\" but after watching these creatures suffer from their head \
-		getting dunked down disposals for the nth time, I think I'm good.\" - Captain Larry Dodd"
+		"\"Неудивительно, что они все такие ворчливые! Их руки всегда заняты! Я раньше думал, \
+		\"Разве это не круто?\" но после того, как я в н-ный раз наблюдал, как эти существа \
+		страдают от того, что их голову сбрасывают в утилизатор, я думаю, что мне хватит.\" - Капитан Ларри Додд"
 	)
 
 /datum/species/dullahan/create_pref_unique_perks()
@@ -140,10 +141,10 @@
 	to_add += list(list(
 		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 		SPECIES_PERK_ICON = "horse-head",
-		SPECIES_PERK_NAME = "Headless and Horseless",
-		SPECIES_PERK_DESC = "Dullahans must lug their head around in their arms. While \
-			many creative uses can come out of your head being independent of your \
-			body, Dullahans will find it mostly a pain.",
+		SPECIES_PERK_NAME = "Безголовый и бесконный",
+		SPECIES_PERK_DESC = "Дуллаханы должны таскать свою голову в руках. Хотя \
+			многие творческие применения могут возникнуть из-за независимости вашей головы от \
+			тела, дуллаханы в основном считают это проблемой.",
 	))
 
 	return to_add
@@ -155,11 +156,11 @@
 	to_add += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = "skull",
-		SPECIES_PERK_NAME = "Minor Undead",
-		SPECIES_PERK_DESC = "[name] are minor undead. \
-			Minor undead enjoy some of the perks of being dead, like \
-			not needing to breathe or eat, but do not get many of the \
-			environmental immunities involved with being fully undead.",
+		SPECIES_PERK_NAME = "Малый нежить",
+		SPECIES_PERK_DESC = "[name] являются малой нежитью. \
+			Малая нежить наслаждается некоторыми преимуществами мёртвых, такими как \
+			отсутствие необходимости дышать или есть, но не получает многих \
+			иммунитетов к окружающей среде, связанных с полной нежитью.",
 	))
 
 	return to_add
@@ -187,14 +188,14 @@
 
 /obj/item/organ/eyes/dullahan
 	name = "head vision"
-	desc = "An abstraction."
+	desc = "Абстракция."
 	actions_types = list(/datum/action/item_action/organ_action/dullahan)
 	zone = "abstract"
 	tint = INFINITY // to switch the vision perspective to the head on species_gain() without issue.
 
 /datum/action/item_action/organ_action/dullahan
-	name = "Toggle Perspective"
-	desc = "Switch between seeing normally from your head, or blindly from your body."
+	name = "Переключить перспективу"
+	desc = "Переключиться между нормальным зрением из головы или слепым зрением из тела."
 
 /datum/action/item_action/organ_action/dullahan/do_effect(trigger_flags)
 	var/obj/item/organ/eyes/dullahan/dullahan_eyes = target
@@ -246,7 +247,7 @@
 	detached_head.real_name = wearer.real_name
 	detached_head.name = wearer.real_name
 	var/obj/item/organ/brain/brain = locate(/obj/item/organ/brain) in detached_head
-	brain.name = "[wearer.name]'s brain"
+	brain.name = "мозг [wearer.name]"
 
 /obj/item/dullahan_relay/Hear(atom/movable/speaker, message_language, raw_message, radio_freq, radio_freq_name, radio_freq_color, list/spans, list/message_mods = list(), message_range)
 	. = ..()

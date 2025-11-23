@@ -1,6 +1,6 @@
 /datum/species/zombie
 	// 1spooky
-	name = "High-Functioning Zombie"
+	name = "Высокофункциональный Зомби"
 	id = SPECIES_ZOMBIE
 	sexes = FALSE
 	meat = /obj/item/food/meat/slab/human/mutant/zombie
@@ -66,14 +66,14 @@
 	return ..()
 
 /datum/species/zombie/get_physical_attributes()
-	return "Zombies are undead, and thus completely immune to any environmental hazard, or any physical threat besides blunt force trauma and burns. \
-		Their limbs are easy to pop off their joints, but they can somehow just slot them back in."
+	return "Зомби - нежить, и поэтому полностью невосприимчивы к любым опасностям окружающей среды или любым физическим угрозам, кроме тупой травмы и ожогов. \
+		Их конечности легко выскакивают из суставов, но они могут каким-то образом просто вставить их обратно."
 
 /datum/species/zombie/get_species_description()
-	return "A rotting zombie! They descend upon Space Station Thirteen Every year to spook the crew! \"Sincerely, the Zombies!\""
+	return "Гниющий зомби! Они спускаются на Космическую Станцию Тринадцать каждый год, чтобы напугать экипаж!"
 
 /datum/species/zombie/get_species_lore()
-	return list("Zombies have long lasting beef with Botanists. Their last incident involving a lawn with defensive plants has left them very unhinged.")
+	return list("У зомби давняя вражда с ботаниками. Их последний инцидент с газоном с защитными растениями оставил их очень расстроенными.")
 
 // Override for the default temperature perks, so we can establish that they don't care about temperature very much
 /datum/species/zombie/create_pref_temperature_perks()
@@ -82,17 +82,17 @@
 	to_add += list(list(
 		SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
 		SPECIES_PERK_ICON = "thermometer-half",
-		SPECIES_PERK_NAME = "No Body Temperature",
-		SPECIES_PERK_DESC = "Having long since departed, Zombies do not have anything \
-			regulating their body temperature anymore. This means that \
-			the environment decides their body temperature - which they don't mind at \
-			all, until it gets a bit too hot.",
+		SPECIES_PERK_NAME = "Нет температуры тела",
+		SPECIES_PERK_DESC = "Давно ушедшие, у зомби больше нет ничего, \
+			регулирующего температуру их тела. Это означает, что \
+			окружающая среда определяет их температуру тела - что их совсем не волнует, \
+			пока не станет слишком жарко.",
 	))
 
 	return to_add
 
 /datum/species/zombie/infectious
-	name = "Infectious Zombie"
+	name = "Инфекционный Зомби"
 	id = SPECIES_ZOMBIE_INFECTIOUS
 	examine_limb_id = SPECIES_ZOMBIE
 	damage_modifier = 20 // 120 damage to KO a zombie, which kills it
@@ -181,7 +181,7 @@
 
 // Your skin falls off
 /datum/species/human/krokodil_addict
-	name = "\improper Krokodil Human"
+	name = "Кроколюд"
 	id = SPECIES_ZOMBIE_KROKODIL
 	examine_limb_id = SPECIES_HUMAN
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | ERT_SPAWN

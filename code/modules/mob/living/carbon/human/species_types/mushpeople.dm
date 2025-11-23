@@ -1,6 +1,6 @@
 /datum/species/mush //mush mush codecuck
-	name = "Mushroomperson"
-	plural_form = "Mushroompeople"
+	name = "Гриболюд"
+	plural_form = "Гриболюди"
 	id = SPECIES_MUSHROOM
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | ERT_SPAWN
 
@@ -52,7 +52,7 @@
 /// A mushpersons mushroom cap organ
 /obj/item/organ/mushroom_cap
 	name = "mushroom cap"
-	desc = "These are yummie, no cap."
+	desc = "Они вкусные, без шуток."
 
 	use_mob_sprite_as_obj_sprite = TRUE
 

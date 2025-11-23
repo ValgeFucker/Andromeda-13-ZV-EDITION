@@ -1,5 +1,6 @@
 /datum/species/ethereal
-	name = "\improper Ethereal"
+	name = "Эфириал"
+	plural_form = "Эфириалы"
 	id = SPECIES_ETHEREAL
 	meat = /obj/item/food/meat/slab/human/mutant/ethereal
 	mutantlungs = /obj/item/organ/lungs/ethereal
@@ -129,7 +130,7 @@
 		return
 	disrupted = TRUE
 	refresh_light_color(source)
-	to_chat(source, span_notice("You feel the light of your body leave you."))
+	to_chat(source, span_notice("Вы чувствуете, как свет вашего тела покидает вас."))
 	switch(severity)
 		if(EMP_LIGHT)
 			addtimer(CALLBACK(src, PROC_REF(stop_emp), source), 10 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE) //We're out for 10 seconds
@@ -139,7 +140,7 @@
 /datum/species/ethereal/proc/hit_by_saboteur(mob/living/carbon/human/source, disrupt_duration)
 	disrupted = TRUE
 	refresh_light_color(source)
-	to_chat(source, span_warning("Something inside of you crackles in a bad way."))
+	to_chat(source, span_warning("Что-то внутри вас трещит плохим образом."))
 	source.take_bodypart_damage(burn = 3, wound_bonus = CANT_WOUND)
 	addtimer(CALLBACK(src, PROC_REF(stop_emp), source), disrupt_duration, TIMER_UNIQUE|TIMER_OVERRIDE)
 	return TRUE
@@ -150,10 +151,10 @@
 		return FALSE
 	emageffect = TRUE
 	if(user)
-		to_chat(user, span_notice("You tap [source] on the back with your card."))
-	source.visible_message(span_danger("[source] starts flickering in an array of colors!"))
+		to_chat(user, span_notice("Вы постукиваете [source] по спине своей картой."))
+	source.visible_message(span_danger("[source] начинает мерцать множеством цветов!"))
 	handle_emag(source)
-	addtimer(CALLBACK(src, PROC_REF(stop_emag), source), 2 MINUTES) //Disco mode for 2 minutes! This doesn't affect the ethereal at all besides either annoying some players, or making someone look badass.
+	addtimer(CALLBACK(src, PROC_REF(stop_emag), source), 2 MINUTES) // Режим диско на 2 минуты! Это никак не влияет на эфириала, кроме как раздражения некоторых игроков или создания крутого вида.
 	return TRUE
 
 /// Special handling for getting hit with a light eater
@@ -165,7 +166,7 @@
 /datum/species/ethereal/proc/stop_emp(mob/living/carbon/human/ethereal)
 	disrupted = FALSE
 	refresh_light_color(ethereal)
-	to_chat(ethereal, span_notice("You feel more energized as your shine comes back."))
+	to_chat(ethereal, span_notice("Вы чувствуете прилив энергии, когда ваш блеск возвращается."))
 
 /datum/species/ethereal/proc/handle_emag(mob/living/carbon/human/ethereal)
 	if(!emageffect)
@@ -177,7 +178,7 @@
 /datum/species/ethereal/proc/stop_emag(mob/living/carbon/human/ethereal)
 	emageffect = FALSE
 	refresh_light_color(ethereal)
-	ethereal.visible_message(span_danger("[ethereal] stops flickering and goes back to their normal state!"))
+	ethereal.visible_message(span_danger("[ethereal] перестаёт мерцать и возвращается в нормальное состояние!"))
 
 /datum/species/ethereal/proc/handle_glow_emote(mob/living/carbon/human/ethereal, power, range, flare = FALSE, duration = 5 SECONDS, flare_time = 0)
 	powermult = power
@@ -199,7 +200,7 @@
 	powermult = 1
 	rangemult = 1
 	disrupted = TRUE
-	to_chat(ethereal, span_warning("Your shine flickers and fades."))
+	to_chat(ethereal, span_warning("Ваш блеск мерцает и угасает."))
 	addtimer(CALLBACK(src, PROC_REF(stop_emp), ethereal), flare_time, TIMER_UNIQUE|TIMER_OVERRIDE)
 
 
@@ -242,20 +243,20 @@
 	return 'sound/mobs/humanoids/ethereal/ethereal_hiss.ogg'
 
 /datum/species/ethereal/get_physical_attributes()
-	return "Ethereals process electricity as their power supply, not food, and are somewhat resistant to it.\
-		They do so via their crystal core, their equivalent of a human heart, which will also encase them in a reviving crystal if they die.\
-		However, their skin is very thin and easy to pierce with brute weaponry."
+	return "Эфириалы используют электричество как источник питания, а не еду и несколько устойчивы к нему.\
+		Они делают это через своё кристальное ядро, эквивалент человеческого сердца, которое также заключит их в оживляющий кристалл, если они умрут.\
+		Однако их кожа очень тонкая и легко прокалывается тупым оружием."
 
 /datum/species/ethereal/get_species_description()
-	return "Coming from the planet of Sprout, the theocratic ethereals are \
-		separated socially by caste, and espouse a dogma of aiding the weak and \
-		downtrodden."
+	return "Происходящие с планеты Спраут, теократические эфириалы \
+		разделены социально по кастам и проповедуют догму помощи слабым и \
+		угнетённым."
 
 /datum/species/ethereal/get_species_lore()
 	return list(
-		"Ethereals are a species native to the planet Sprout. \
-		When they were originally discovered, they were at a medieval level of technological progression, \
-		but due to their natural acclimation with electricity, they felt easy among the large Nanotrasen installations.",
+		"Эфириалы - вид, родом с планеты Спраут. \
+		Когда их первоначально обнаружили, они находились на средневековом уровне технологического прогресса, \
+		но благодаря их естественной акклиматизации к электричеству, они чувствовали себя комфортно среди крупных установок Нанотрейзен.",
 	)
 
 /datum/species/ethereal/create_pref_unique_perks()
@@ -298,7 +299,7 @@
 	return to_add
 
 /datum/species/ethereal/lustrous //Ethereal pirates with an inherent bluespace prophet trauma.
-	name = "Lustrous"
+	name = "Блестящий"
 	id = SPECIES_ETHEREAL_LUSTROUS
 	examine_limb_id = SPECIES_ETHEREAL
 	mutantbrain = /obj/item/organ/brain/lustrous
@@ -322,8 +323,8 @@
 	)
 
 /datum/species/ethereal/lustrous/get_physical_attributes()
-	return "Lustrous are what remains of an Ethereal after freebasing esoteric drugs. \
-		They are pressure immune, virus immune, can see bluespace tears in reality, and have a really weird scream. They remain vulnerable to physical damage."
+	return "Блестящие - это то, что осталось от эфириала после свободного употребления эзотерических наркотиков. \
+		Они невосприимчивы к давлению, вирусам, могут видеть разрывы блюспейса в реальности и имеют очень странный крик. Они остаются уязвимыми к физическому урону."
 
 /datum/species/ethereal/lustrous/get_scream_sound(mob/living/carbon/human/ethereal)
 	return pick(
