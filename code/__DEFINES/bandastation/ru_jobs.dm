@@ -34,7 +34,7 @@
 #define JOB_STATION_ENGINEER_RU "Станционный инженер"
 #define JOB_ATMOSPHERIC_TECHNICIAN_RU "Атмосферный техник"
 //Medical
-#define JOB_CORONER_RU "Коронер"
+#define JOB_CORONER_RU "Патологоанат"
 #define JOB_MEDICAL_DOCTOR_RU "Врач"
 #define JOB_PARAMEDIC_RU "Парамедик"
 #define JOB_CHEMIST_RU "Химик"

@@ -23,7 +23,7 @@
 	role_unique_actions = list(/datum/mafia_ability/reveal_role)
 
 /datum/mafia_role/coroner
-	name = "Коронер"
+	name = "Патологоанат"
 	desc = "Вы можете проводить вскрытия тел умерших каждую ночь, чтобы выяснить их роль."
 	revealed_outfit = /datum/outfit/mafia/coroner
 	role_type = TOWN_INVEST
