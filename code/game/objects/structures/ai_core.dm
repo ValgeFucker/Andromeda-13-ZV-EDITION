@@ -104,8 +104,8 @@
 	attached_ai.ShutOffDoomsdayDevice()
 
 /obj/structure/ai_core/latejoin_inactive
-	name = "networked AI core"
-	desc = "This AI core is connected by bluespace transmitters to NTNet, allowing for an AI personality to be downloaded to it on the fly mid-shift."
+	name = "сетевое ядро ​​искусственного интеллекта"
+	desc = "Это ядро ​​ИИ подключено к сети NTNet с помощью передатчиков Bluespace, что позволяет загружать в него личность ИИ прямо во время смены.."
 	icon_state = "ai-empty"
 	anchored = TRUE
 	state = AI_READY_CORE
